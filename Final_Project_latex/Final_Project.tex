@@ -1,0 +1,75 @@
+\documentclass[12pt, letterpaper]{report}
+\input{cps296_2}
+\usepackage{epsfig,graphicx,epsf,subfigure, amssymb,amsmath}
+\usepackage{amssymb,amsmath,subfigure}
+%\usepackage{graphics}
+\usepackage{setspace}
+\def\doublespace{\doublespacing}
+\usepackage{booktabs}
+\usepackage{caption}
+
+\usepackage{fancyheadings}
+\usepackage{epsfig}
+%\usepackage{amssymb,amsmath}
+%\usepackage{a4 wide}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{rotating}
+\usepackage{hyperref}
+
+\usepackage{amsfonts,latexsym}
+%\usepackage[amsthm,thmmarks,thref]{ntheorem}
+%\usepackage{accents} % To produce symbols for definitions etc.
+\usepackage{epsf}
+
+\setlength{\oddsidemargin}{0in} \setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in} \setlength{\topmargin}{0in}
+\setlength{\textheight}{8.5in}
+
+\long\def\gobble#1{}
+\def\cref#1{#1}
+\usepackage{boxedminipage}
+%\def\codesize{\scriptsize}
+\def\codesize{\footnotesize}
+\newcommand{\capspacing}{\footnotesize}
+\def\rulefigure{\smallskip\hrule}
+
+\renewcommand{\bibname}{References}
+\newcommand{\Omit}[1]{}
+% ~~~~~~~ page style setting for main part ~~~~~~~
+\addtolength{\headheight}{3pt} \pagestyle{fancy}
+\setlength{\headrulewidth}{0.1pt}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter. #1}{}}
+\lhead{\fancyplain{}{\bfseries\footnotesize\sc\leftmark}} \rhead{}
+\addtolength{\headsep}{-0.1in}
+\cfoot{\fancyplain{}{\bfseries\rm\thepage}}
+
+%from LectureTony:
+\font\sletter=msbm10
+\def\Rsmall{\mbox{\sletter R}}
+\def\Real{\Rsmall}
+
+\def\figcredit#1{Credit: {#1}}
+
+%\setlength{\oddsidemargin}{0.5cm}\setlength{\evensidemargin}{0.5cm}
+
+\begin{document}
+\doublespacing
+\bibliographystyle{plain}
+
+\input{cover.tex}
+\pagenumbering{roman}
+
+\include{ack}
+\include{insert}
+{\small\tableofcontents}
+\newpage
+\pagenumbering {arabic}
+\newtheorem{ex}{Example}
+\newtheorem{dfn}{Definition}
+\newtheorem{probl}{Problem}
+\newcommand{\bx}{{\bf x}}
+
+ \setcounter{chapter}{1} \include{Final_Project_Info}
+
+\end{document}

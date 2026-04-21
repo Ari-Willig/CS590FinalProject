@@ -1,0 +1,173 @@
+%\usepackage[mtbold]{mathtime}
+\usepackage{enumerate}
+\usepackage{xypic}
+
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{0in}
+\setlength{\textheight}{8.5in}
+
+\setcounter{topnumber}{3}%
+\def\topfraction{.7}%
+\setcounter{bottomnumber}{1}
+\def\bottomfraction{.3}
+\setcounter{totalnumber}{5}%
+\def\textfraction{.1}% was .2
+\def\floatpagefraction{.7}% was .7
+\setcounter{dbltopnumber}{2}
+\def\dbltopfraction{.7}
+\def\dblfloatpagefraction{.5}
+%\addtolength{\parskip}{\baselineskip}
+
+\long\def\comment#1{\ignorespaces}
+
+\pagestyle{myheadings}
+
+%% Parameters to the \lecture command are the lecture number, the
+%% date, and the scribe's name.
+\newcommand{\lecture}[3]{\newpage\markboth{\textit{Lecture #1, #2}}{\textit{Lecture #1, #2}}
+{
+\begin{flushleft}
+\LARGE{\bf Lecture #1}\\
+\LARGE{\bf #2}\\
+\end{flushleft}}
+\bigskip}
+
+\newenvironment{example}{\begin{quote}}{\end{quote}}
+\newenvironment{letter}[1]{\begin{enumerate}[a.]\item[#1.]}{\end{enumerate}}
+\newenvironment{letters}{\begin{enumerate}[a.]}{\end{enumerate}}
+\newcommand{\xmp}[1]{\textit{#1}}
+\newcommand{\good}{\emph{Good:}}
+\newcommand{\bad}{\emph{Bad:}}
+\newcommand{\ok}{\emph{OK:}}
+\newcommand{\better}{\emph{Better:}}
+\newcommand{\wrong}{\emph{Wrong:}}
+\newcommand{\correct}{\emph{Right:}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+% Make captions with bold figure/table name and number.
+\makeatletter
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{\small\textbf{#1:} #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    {\small\textbf{#1:} #2}\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother
+
+\newcommand{\figcaption}[1]{\caption[]{#1}}
+\newcommand{\figpart}[1]{\textbf{(#1)}~\ignorespaces}
+
+\newcommand{\subheading}[1]{\subsubsection*{#1}}
+\newcommand{\subsubheading}[1]{\paragraph*{#1.}}
+
+\newcommand{\defn}[1]{\emph{#1}}
+
+\newcommand{\eqnref}[1]{(\ref{#1})}
+\renewcommand{\cases}[1]{\left\{ \begin{array}{ll}#1\end{array}\right.}
+\newcommand{\cif}[1]{\mbox{if $#1$}}
+
+\newcommand{\prob}[1]{\Pr\left\{ #1 \right\}}
+\renewcommand{\hat}{\widehat}
+\newcommand{\elems}[3]{#1, \lb #2, \lb \ldots, #3}
+\renewcommand{\vector}[1]{(#1)}
+\newcommand{\evector}[3]{\vector{\elems{#1}{#2}{#3}}}
+\newcommand{\seq}[1]{\langle#1\rangle}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\eset}[3]{\set{\elems{#1}{#2}{#3}}}
+\def\ceil#1{\left\lceil#1\right\rceil}
+\def\floor#1{\left\lfloor#1\right\rfloor}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\card}[1]{\left|#1\right|}
+\newcommand{\smallcard}[1]{|#1|}
+\newcommand{\proof}{\noindent\textit{Proof:}\hspace*{1em}}
+\newcommand{\proofof}[1]{\noindent\textit{Proof of #1:}\hspace*{1em}}
+\newcommand{\proofsketch}{\noindent\textit{Proof sketch:}\hspace*{1em}}
+\newcommand{\proofnote}[1]{\noindent\textit{Proof:}\hspace*{.1em}\footnote{#1}\hspace*{0.5em}}
+\def\twodots{\mathinner{\ldotp\ldotp}}
+\newcommand{\range}{\twodots}
+\newcommand{\inv}{^{-1}}
+\newcommand{\transpose}{^{\rm T}}
+\newcommand{\ptranspose}{^{\prime{\rm T}}}
+\newcommand{\oneone}{\stackrel{\mbox{\scriptsize 1-1}}{\rightarrow}}
+\newcommand{\xor}{\oplus}
+\newcommand{\bigxor}{\bigoplus}
+\def\degrees{^{\circ}}
+
+\DeclareMathSymbol{\umod}{\mathbin}{operators}{"23}
+
+\def\qedbox{\hspace{-0.3em}\mbox{\vrule height 5pt width 5pt}}
+\def\qed{\unskip\parfillskip=0pt~~~~\hfill\llap{\vrule height 5pt width 5pt}\vskip11pt\parfillskip=0pt plus 1fil\relax}
+\def\qednoproof{\unskip\parfillskip=0pt~~~~\hfill\llap{\vrule height 5pt width 5pt}}
+
+\newenvironment{eqnarrayreason}{\[\begin{array}{rcll}}{\end{array}\]}
+\newcommand{\eqnline}{\\[.75ex]}
+\newcommand{\bigeqnline}{\\[2.5ex]}
+
+\newlength{\savearraycolsep}
+\newcommand{\narrowarray}[1]{\setlength{\savearraycolsep}{\arraycolsep}%
+\setlength{\arraycolsep}{#1\arraycolsep}}
+\newcommand{\normalarray}{\setlength{\arraycolsep}{\savearraycolsep}}
+\newlength{\savetabcolsep}
+\newcommand{\narrowtabular}[1]{\setlength{\savetabcolsep}{\tabcolsep}%
+\setlength{\tabcolsep}{#1\tabcolsep}}
+\newcommand{\normaltabular}{\setlength{\tabcolsep}{\savetabcolsep}}
+
+\newcommand{\noarraystretch}{\def\arraystretch{}}
+\newcommand{\matx}[2]{{\noarraystretch\left[\begin{array}{*{#1}{c}}#2\end{array}\right]}}
+\newcommand{\block}[2]{{\noarraystretch\count200=#1%
+\advance\count200 by -1\left[\begin{array}{*{\count200}{c|}c}#2\end{array}\right]}}
+\newcommand{\hatstrut}{\rule{0pt}{3ex}}
+
+\newcommand{\bstrut}{\rule{0pt}{2.4ex}}
+\newcommand{\bline}{\hline\bstrut}
+\newlength{\blockdimwidth}
+\newcommand{\bm}[1]{\makebox[\blockdimwidth]{$#1$}}
+\newcommand{\bt}[1]{\makebox[\blockdimwidth]{\footnotesize$#1$}}
+\newcommand{\bs}[1]{\mbox{\bstrut\footnotesize$#1$}}
+\newcommand{\blockdims}[6]{{\noarraystretch\setlength{\blockdimwidth}{#1}%
+\begin{array}{cc@{\hspace{0em}}c} &%
+\begin{array}{c*{#2}{c}}#4\end{array} & \\%
+#3 &
+\count200=#2\advance\count200 by -1%
+\left[\begin{array}{*{\count200}{c|}c}#5\end{array}\right] &%
+\begin{array}{l}#6\end{array}%
+\end{array}}}
+\newcommand{\blockdimscol}[6]{{\noarraystretch\setlength{\blockdimwidth}{#1}%
+\begin{array}{cc@{\hspace{0em}}c} &%
+\begin{array}{cc}#4\end{array} & \\%
+#3 &
+\left[\begin{array}{c}#5\end{array}\right] &%
+\begin{array}{l}#6\end{array}%
+\end{array}}}
+\newcommand{\blockdimstoponly}[5]{{\noarraystretch\setlength{\blockdimwidth}{#1}%
+\begin{array}{cc} &%
+\begin{array}{c*{#2}{c}}#4\end{array}\\%
+#3 &
+\count200=#2\advance\count200 by -1%
+\left[\begin{array}{*{\count200}{c|}c}#5\end{array}\right]%
+\end{array}}}
+\newcommand{\blockdimsmatxonly}[5]{{\noarraystretch\setlength{\blockdimwidth}{#1}%
+\begin{array}{c@{\hspace{0em}}c}%
+\begin{array}{c*{#2}{c}}#3\end{array} & \\%
+\count200=#2\advance\count200 by -1%
+\left[\begin{array}{*{\count200}{c|}c}#4\end{array}\right] &%
+\begin{array}{l}#5\end{array}%
+\end{array}}}
+\newcommand{\blockdimstopmatxonly}[4]{{\noarraystretch\setlength{\blockdimwidth}{#1}%
+\begin{array}{c@{\hspace{0em}}c}%
+\begin{array}{c*{#2}{c}}#3\end{array} & \\%
+\count200=#2\advance\count200 by -1%
+\left[\begin{array}{*{\count200}{c|}c}#4\end{array}\right]%
+\end{array}}}
+
+\usepackage{url}
+\urlstyle{rm}
